@@ -1,0 +1,6 @@
+@dotnet7JwtToken_HostAddress = http://localhost:5244
+
+GET {{dotnet7JwtToken_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
