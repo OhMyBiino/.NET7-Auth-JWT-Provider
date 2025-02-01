@@ -4,6 +4,7 @@ using dotnet7JwtToken.Models;
 using System.Security.Claims;
 using System.Text;
 using System.IdentityModel.Tokens.Jwt;
+using Microsoft.AspNetCore.Authorization;
 
 namespace dotnet7JwtToken.Controllers
 {
@@ -53,6 +54,14 @@ namespace dotnet7JwtToken.Controllers
             string token = GenereateJsonWebToken();
             return Ok(token);
         }
+
+        [HttpGet("/Username"), Authorize]
+        public async Task<ActionResult<string>> GetUserName() 
+        {
+            return Ok(user.Username);
+        }
+
+
 
         //generate token
         private string GenereateJsonWebToken() 
